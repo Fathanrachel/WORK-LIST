@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORKLIST</title>
+
+    <link rel="stylesheet" href="/frontend/style.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section>
+        <h1>MY DAILY WORKLIST</h1>
+        <div id="notification"></div>
+        <input name="title" placeholder="Masukkan Kegiatanmu ....."/>
+        <button 
+            hx-include="[name=title]" 
+            hx-trigger="click" 
+            hx-post="http://localhost:4000/work"
+            hx-target="#notification"
+            id="savebutton"
+        >ADD</button>
+        <ul hx-get="http://localhost:4000/work" hx-trigger="load delay:1s, click from:#savebutton">
+            <!-- respons dari API /work -->
+        </ul>
+    </section>
+</body>
+</html>
+
+
+
+
+
+
+<!-- video 25:07 -->
